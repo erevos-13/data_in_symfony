@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block title %}Desplay Campers{% endblock %}
+{% block body%}
+
+<h2 class="text-center" >Campers Passing</h2>
+	<div class="pull-right">
+
+        {{ form_start(form, { attr: { class: 'form-inline'}} ) }}
+        {{ form_widget(form.search, {attr: {placeholder:'Search'}} )}}
+        {{ form_errors(form.search) }}
+		<button type="submit" class="btn" >Search</button>
+        {{ form_end(form) }}
+		<br>
+	</div>
+<table  class="table">
+<tr>
+			<th><h3>Name</h3> </th>
+			<th><h3>Last Name</h3> </th>
+			<th><h3>Position</h3></th>
+			<th><h3>How Many</h3></th>
+			<th><h3>Arrival</h3></th>
+			<th><h3>Departure</h3></th>
+			<th><h3>Info</h3></th>
+			<th><h3>Cost</h3></th>
+
+		</tr>
+		</tr>
+		{% for person in people %}
+			<tr>
+				<th>{{ person.name }}</th>
+				<th>{{ person.lastName }}</th>
+				<th>{{ person.position }}</th>
+				<th>{{ person.manyPeople }}</th>
+				<th>{{ person.arrival }}</th>
+				<th>{{ person.departure }}</th>
+				<th> <a href=" {{ url('person', {id: person.id})}} ">Show more</a> </th>
+				<th> <a href=" {{ url('cost', {id: person.id})}} ">Show Cost</a> </th>
+
+			</tr>
+
+		{% endfor %} 
+
+</table>
+<a href=" {{ url('desplay') }} class="btn btn-primary"">Return</a>
+{% endblock %}

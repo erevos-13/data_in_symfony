@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}  Info  {% endblock %}
+{% block body %}
+	<h1>Info</h1>
+	<p> {{ person_info.info }} </p>
+	<p>They stay in: {{ person_info.stay }} </p>
+	<p>How many people they are: {{ person_info.manyPeople }} </p>
+
+
+<a href=" {{ url('desplay') }} ">Return</a>
+{% endblock %} 
