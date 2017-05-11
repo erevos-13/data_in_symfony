@@ -31,8 +31,8 @@
 				<th>{{ person.lastName }}</th>
 				<th>{{ person.position }}</th>
 				<th>{{ person.manyPeople }}</th>
-				<th>{{ person.arrival }}</th>
-				<th>{{ person.departure }}</th>
+				<th>{{ person.arrival|date('Y-m-d') }}</th>
+				<th>{{ person.departure|date('Y-m-d') }}</th>
 				<th> <a href=" {{ url('person', {id: person.id})}} ">Show more</a> </th>
 				<th> <a href=" {{ url('cost', {id: person.id})}} ">Show Cost</a> </th>
 

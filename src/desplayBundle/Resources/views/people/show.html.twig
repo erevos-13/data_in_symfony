@@ -23,11 +23,11 @@
             </tr>
             <tr>
                 <th>Arrival</th>
-                <td>{{ person.arrival }}</td>
+                <td>{{ person.arrival|date('Y-m-d') }}</td>
             </tr>
             <tr>
                 <th>Departure</th>
-                <td>{{ person.departure }}</td>
+                <td>{{ person.departure|date('Y-m-d') }}</td>
             </tr>
             <tr>
                 <th>Info</th>

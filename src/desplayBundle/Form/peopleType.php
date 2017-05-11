@@ -5,6 +5,7 @@ namespace desplayBundle\Form;
 use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,23 +16,42 @@ class peopleType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $caravan = 10;
+        $caravanRent = 15;
+        $tent = 5.5;
+        $tentRent = 10;
         $builder->add('name')
             ->add('lastName')
             ->add('position')
-            ->add('manyPeople')
-            ->add('arrival')
-            ->add('departure')
+            ->add('manyPeople',choiceType::class, array(
+                'choices' => array(
+                '1'=> 1,
+                '2'=> 2,
+                '3'=> 3,
+                '4'=> 4,
+                '5'=> 5,
+                '6'=> 6,
+                '7'=> 7,
+                '8'=> 8,
+                '9'=> 9,
+                '10'=> 10
+                ),))
+            ->add('arrival', DateType::class, array(
+                'widget' => 'choice',))
+            ->add('departure', DateType::class, array(
+                'widget' => 'choice',))
             ->add('info')
+            ->add('parking')
             ->add('stay', ChoiceType::class, array(
                 'choices'  => array(
                     'Select' => null,
                     'Tent' => array(
-                        'Tent'=> 5.5,
-                        'Tent Rent' => 10
+                        'Tent'=> 'tent',
+                        'Tent Rent' => 'tentRent',
                         ),
                     'Caravan' => array(
-                    'Caravan ' => 10,
-                    'Rent Caravan' => 15),
+                    'Caravan ' => $caravan,
+                    'Rent Caravan' => 'caravanRent'),
 
                 )
             ));

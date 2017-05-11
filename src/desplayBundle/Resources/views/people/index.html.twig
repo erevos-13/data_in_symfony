@@ -23,8 +23,8 @@
                 <td>{{ person.name }}</td>
                 <td>{{ person.lastName }}</td>
                 <td>{{ person.position }}</td>
-                <td>{{ person.arrival }}</td>
-                <td>{{ person.departure }}</td>
+                <td>{{ person.arrival|date("m/d/Y") }}</td>
+                <td>{{ person.departure|date("m/d/Y") }}</td>
                 <td>{{ person.info }}</td>
                 <td>
 
