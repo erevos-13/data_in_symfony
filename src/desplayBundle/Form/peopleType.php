@@ -16,10 +16,7 @@ class peopleType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $caravan = 10;
-        $caravanRent = 15;
-        $tent = 5.5;
-        $tentRent = 10;
+
         $builder->add('name')
             ->add('lastName')
             ->add('position')
@@ -50,7 +47,7 @@ class peopleType extends AbstractType
                         'Tent Rent' => 'tentRent',
                         ),
                     'Caravan' => array(
-                    'Caravan ' => $caravan,
+                    'Caravan ' => 'caravan',
                     'Rent Caravan' => 'caravanRent'),
 
                 )

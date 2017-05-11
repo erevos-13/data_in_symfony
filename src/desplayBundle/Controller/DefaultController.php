@@ -63,6 +63,11 @@ class DefaultController extends Controller
      */
 
     public function numberAction($id){
+        $tent = 5.5;
+        $tentRent = 10;
+        $caravanRent = 15;
+        $caravan = 10;
+        $people = 6;
 
         $em = $this->getDoctrine()->getManager();
         $days = $em->getRepository('desplayBundle:people')->find($id);
@@ -71,7 +76,12 @@ class DefaultController extends Controller
 
         return $this->render('desplayBundle:Default:cost.html.twig',
             [
-                'days' => $days
+                'days' => $days,
+                'tent'=> $tent,
+                'tentRent'=> $tentRent,
+                'caravan'=> $caravan,
+                'caravanRent'=> $caravanRent,
+                'people' => $people
 
             ]
         );

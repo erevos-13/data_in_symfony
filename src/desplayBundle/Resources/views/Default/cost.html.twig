@@ -4,17 +4,26 @@
 {% block body %}
     <h1>Camper Cost</h1>
 
-    <p>They arrive at:  {{ days.arrival|date('Y-m-d') }} </p>
-    <p>They left at:  {{ days.departure |date('Y-m-d')}} </p>
-    <p>They stay in {{ days.stay }} </p>
+    <p><b>They arrive at:</b>  {{ days.arrival|date('Y-m-d') }} </p>
+    <p><b>They left at:</b>  {{ days.departure |date('Y-m-d')}} </p>
+    <p><b>They stay in</b> {{ days.stay }} </p>
     <p><b>The people that stay: </b>{{ days.manyPeople }} people </p>
+    {% if days.stay == 'tent' %}
+        {% set cost_stay = tent %}
+    {% elseif days.stay == 'tentRent' %}
+        {% set cost_stay = tentRent %}
+    {% elseif days.stay == 'caravan' %}
+        {% set cost_stay = caravan %}
+    {% else %}
+        {% set cost_stay = caravanRent %}
+    {% endif %}
 
     {% if days.parking ==true %}
     {% set parking = 3.5 %}
-    <span>Parking : yes </span>
+        <p><b>Parking : </b>yes</p>
     {% else %}
     {% set parking = 0 %}
-    <span>Parking : No</span>
+        <p><b>Parking : </b>No</p>
     {% endif %}
 
     {# endDate and startDate are strings or DateTime objects #}
@@ -26,8 +35,8 @@
         <p><b>The days that left:</b>  {{ leftDays }} days </p>
     {% endif %}
     <br>
-    <p>The total cost is{% set result = leftDays *( days.manyPeople + 3.5 + parking ) %}
-        {{ result }}</p>
+    <p>The total cost is{% set result = leftDays *( (days.manyPeople * 6) + cost_stay + 3.5 + parking ) %}
+        {{ result }} Euro</p>
 
 
 

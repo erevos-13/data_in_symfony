@@ -1,3 +1,10 @@
+Data in Symfony
+========================
+Here is my project to make a databases for storing info and 
+of person.
+
+
+
 Symfony Standard Edition
 ========================
 
