@@ -3,22 +3,26 @@
 {% block body%}
 
 <h2 class="text-center" >Campers Passing</h2>
-	<div class="pull-right">
+    {#<div class="pull-right">
 
         {{ form_start(form, { attr: { class: 'form-inline'}} ) }}
         {{ form_widget(form.search, {attr: {placeholder:'Search'}} )}}
         {{ form_errors(form.search) }}
-		<button type="submit" class="btn" >Search</button>
+        <button type="submit" class="btn" >Search</button>
         {{ form_end(form) }}
-		<br>
+        <br>
+    </div>#}
+    {# total items count #}
+	<div class="count">
+		<p>The number of item is : {{ pagination.getTotalItemCount }} </p>
 	</div>
 <table  class="table">
-<tr>
-			<th><h3>{{ knp_pagination_sortable(pagination, 'Name', 'a.name') }}</h3> </th>
-			<th><h3>{{ knp_pagination_sortable(pagination, 'Last Name', 'a.lastName') }} </h3> </th>
-			<th><h3>Position{{ knp_pagination_sortable(pagination, 'Position', 'a.position') }}</h3></th>
+<tr >
+	<th><h3>{{ knp_pagination_sortable(pagination, 'Name', 'bp.name') }}</h3></th>
+			<th><h3>{{ knp_pagination_sortable(pagination, 'Last Name', 'bp.lastName') }} </h3> </th>
+			<th><h3>{{ knp_pagination_sortable(pagination, 'Position', 'bp.position') }}</h3></th>
 			<th><h3>How Many People</h3></th>
-			<th><h3>{{ knp_pagination_sortable(pagination, 'Arrival', ['a.arrival']) }}</h3></th>
+			<th><h3>{{ knp_pagination_sortable(pagination, 'Arrival', ['bp.arrival']) }}</h3></th>
 			<th><h3>Departure</h3></th>
 			<th><h3>Info</h3></th>
 			<th><h3>Cost</h3></th>
@@ -31,7 +35,7 @@
 				<th>{{ person.lastName }}</th>
 				<th>{{ person.position }}</th>
 				<th >{{ person.manyPeople }}</th>
-				<th>{{ person.arrival|date('Y-m-d') }}</th>
+				<th>{{ person.arrival | date('Y-m-d') }}</th>
 				<th>{{ person.departure|date('Y-m-d') }}</th>
 				<th> <a href=" {{ url('person', {id: person.id})}} ">Show more</a> </th>
 				<th> <a href=" {{ url('cost', {id: person.id})}} ">Show Cost</a> </th>
@@ -43,7 +47,7 @@
 </table>
 <a href=" {{ url('desplay') }}" class="btn btn-primary">Return</a>
     {# display navigation #}
-	<div class="navigation">
+	<div class="navigation text-center ">
         {{ knp_pagination_render(pagination) }}
 	</div>
 {% endblock %}

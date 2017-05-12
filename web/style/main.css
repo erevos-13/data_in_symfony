@@ -11,3 +11,14 @@ p{
 .text{
     margin-right: 60px;
 }
+
+.pagination_color{
+    text-align: center;
+
+}
+
+.pagination a:hover{
+    text-decoration: none ;
+    color: white;
+
+}

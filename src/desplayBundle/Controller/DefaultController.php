@@ -22,27 +22,32 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {	
-    	$peopleRepository =  $this->getDoctrine()->getRepository('desplayBundle:people');
-       $people=$peopleRepository->findAll();
-        $form = $this->createFormBuilder()->setMethod('GET')->add('search',TextType::class)->getForm();
-        $form->handleRequest($request);
+    	$peopleRepository =  $this->getDoctrine()->getManager();
+        //$people=$peopleRepository->findAll();
+
+        $dpl = "SELECT bp FROM desplayBundle:people bp";
+        $query = $peopleRepository->createQuery($dpl);
+
+        //$form = $this->createFormBuilder()->setMethod('GET')->add('search',TextType::class)->getForm();
+        //$form->handleRequest($request);
 
 
         $paginator  = $this->get('knp_paginator');
-        $result =$pagination = $paginator->paginate(
-            $people,
+        $result = $paginator->paginate(
+            $query,
             $request->query->getInt('page', 1),
             $request->query->getInt('limit', 5)
 
+
         );
 
-        if ($form->isSubmitted() && $form->isValid()  ) {
+        /*if ($form->isSubmitted() && $form->isValid()  ) {
             die('Form submitted');
-        }
+        }*/
         return array(
 
-            'form' => $form->createView(),
-            'pagination' => $result
+            //'form' => $form->createView(),
+            'pagination' => $result,
             );
     }
 
