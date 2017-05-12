@@ -13,6 +13,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 class DefaultController extends Controller
 {
     /**
@@ -26,12 +27,22 @@ class DefaultController extends Controller
         $form = $this->createFormBuilder()->setMethod('GET')->add('search',TextType::class)->getForm();
         $form->handleRequest($request);
 
+
+        $paginator  = $this->get('knp_paginator');
+        $result =$pagination = $paginator->paginate(
+            $people,
+            $request->query->getInt('page', 1),
+            $request->query->getInt('limit', 5)
+
+        );
+
         if ($form->isSubmitted() && $form->isValid()  ) {
             die('Form submitted');
         }
         return array(
-            'people'=>$people,
-            'form' => $form->createView()
+
+            'form' => $form->createView(),
+            'pagination' => $result
             );
     }
 
@@ -85,10 +96,8 @@ class DefaultController extends Controller
 
             ]
         );
-
-
-
-
-
     }
+
+
+
 }

@@ -14,18 +14,18 @@
 	</div>
 <table  class="table">
 <tr>
-			<th><h3>Name</h3> </th>
-			<th><h3>Last Name</h3> </th>
-			<th><h3>Position</h3></th>
+			<th><h3>{{ knp_pagination_sortable(pagination, 'Name', 'a.name') }}</h3> </th>
+			<th><h3>{{ knp_pagination_sortable(pagination, 'Last Name', 'a.lastName') }} </h3> </th>
+			<th><h3>Position{{ knp_pagination_sortable(pagination, 'Position', 'a.position') }}</h3></th>
 			<th><h3>How Many People</h3></th>
-			<th><h3>Arrival</h3></th>
+			<th><h3>{{ knp_pagination_sortable(pagination, 'Arrival', ['a.arrival']) }}</h3></th>
 			<th><h3>Departure</h3></th>
 			<th><h3>Info</h3></th>
 			<th><h3>Cost</h3></th>
 
 		</tr>
 
-		{% for person in people %}
+		{% for person in pagination %}
 			<tr>
 				<th>{{ person.name }}</th>
 				<th>{{ person.lastName }}</th>
@@ -42,4 +42,8 @@
 
 </table>
 <a href=" {{ url('desplay') }}" class="btn btn-primary">Return</a>
+    {# display navigation #}
+	<div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+	</div>
 {% endblock %}
