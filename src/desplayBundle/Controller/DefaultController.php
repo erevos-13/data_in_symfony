@@ -25,8 +25,15 @@ class DefaultController extends Controller
     	$peopleRepository =  $this->getDoctrine()->getManager();
         //$people=$peopleRepository->findAll();
 
-        $dpl = "SELECT bp FROM desplayBundle:people bp";
-        $query = $peopleRepository->createQuery($dpl);
+        //$dpl = "SELECT bp FROM desplayBundle:people bp";
+
+        $querybulder = $peopleRepository->getRepository('desplayBundle:people')
+            ->createQueryBuilder('bp');
+        if ($request->query->getAlnum('filter')) {
+            $querybulder->where('bp.arrival LIKE :arrival')
+                ->setParameter('arrival', '%' . $request->query->getAlnum('filter') . '%');
+        }
+        $query = $querybulder->getQuery();
 
         //$form = $this->createFormBuilder()->setMethod('GET')->add('search',TextType::class)->getForm();
         //$form->handleRequest($request);

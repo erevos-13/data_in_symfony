@@ -23,14 +23,40 @@ class peopleController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
+/*        $em = $this->getDoctrine()->getManager();
 
         $people = $em->getRepository('desplayBundle:people')->findAll();
 
         return array(
             'people' => $people,
+        );*/
+
+        $peopleRepository =  $this->getDoctrine()->getManager();
+
+        $querybulder = $peopleRepository->getRepository('desplayBundle:people')
+            ->createQueryBuilder('bp');
+        if ($request->query->getAlnum('filter')) {
+            $querybulder->where('bp.arrival LIKE :arrival')
+                ->setParameter('arrival', '%' . $request->query->getAlnum('filter') . '%');
+        }
+        $query = $querybulder->getQuery();
+
+        $paginator  = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            $request->query->getInt('limit', 5)
+
+
+        );
+
+
+        return array(
+
+            //'form' => $form->createView(),
+            'pagination' => $result,
         );
     }
 

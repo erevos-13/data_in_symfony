@@ -30,13 +30,14 @@
     {% set difference = date(days.departure).diff(date(days.arrival)) %}
     {% set leftDays = difference.days %}
     {% if leftDays == 1 %}
-        1 day
+        <p><b>The days that stay:</b>  {{ leftDays }} days </p>
     {% else %}
         <p><b>The days that left:</b>  {{ leftDays }} days </p>
     {% endif %}
     <br>
-    <p>The total cost is{% set result = leftDays *( (days.manyPeople * 6) + cost_stay + 3.5 + parking ) %}
-        {{ result }} Euro</p>
+    <p>The total cost is
+        {% set result = leftDays *( (days.manyPeople * 6) + cost_stay + 3.5 + parking ) %}
+        :<b> {{ result }} Euro</b></p>
 
 
 

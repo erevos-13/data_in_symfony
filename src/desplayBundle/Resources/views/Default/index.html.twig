@@ -13,8 +13,20 @@
         <br>
     </div>#}
     {# total items count #}
+	<div class="pull-right" >
+		<form action="{{ path('desplay') }}" method="get" >
+			<label for="filter">Search</label>
+			<input name="filter" type="text" >
+			<button type="submit" class="btn btn-primary">Search</button>
+
+			<br>
+			<button class="pull-right button"><a href="{{ path('desplay') }}">Reset</a></button>
+		</form>
+	</div>
+	<br>
+
 	<div class="count">
-		<p>The number of item is : {{ pagination.getTotalItemCount }} </p>
+		<p>The number of Passing People : {{ pagination.getTotalItemCount }} </p>
 	</div>
 <table  class="table">
 <tr >
@@ -35,8 +47,8 @@
 				<th>{{ person.lastName }}</th>
 				<th>{{ person.position }}</th>
 				<th >{{ person.manyPeople }}</th>
-				<th>{{ person.arrival | date('Y-m-d') }}</th>
-				<th>{{ person.departure|date('Y-m-d') }}</th>
+				<th>{{ person.arrival | date('d-m-Y') }}</th>
+				<th>{{ person.departure|date('d-m-Y') }}</th>
 				<th> <a href=" {{ url('person', {id: person.id})}} ">Show more</a> </th>
 				<th> <a href=" {{ url('cost', {id: person.id})}} ">Show Cost</a> </th>
 

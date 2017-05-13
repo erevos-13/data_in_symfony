@@ -2,7 +2,16 @@
 
 {% block body %}
     <h1>People list</h1>
+    <div class="pull-right" >
+        <form action="{{ path('people_index') }}" method="get" >
+            <label for="filter">Search</label>
+            <input name="filter" type="text" >
+            <button type="submit" class="btn btn-primary">Search</button>
 
+            <br>
+            <button class="pull-right button"><a href="{{ path('people_index') }}">Reset</a></button>
+        </form>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -17,7 +26,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for person in people %}
+        {% for person in pagination %}
 
             <tr>
 

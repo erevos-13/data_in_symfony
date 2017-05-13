@@ -22,3 +22,11 @@ p{
     color: white;
 
 }
+
+.button{
+    margin-top: 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    text-align: right;
+    color: white;
+}
