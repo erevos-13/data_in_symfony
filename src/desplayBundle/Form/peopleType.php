@@ -49,6 +49,9 @@ class peopleType extends AbstractType
                     'Caravan' => array(
                     'Caravan ' => 'caravan',
                     'Rent Caravan' => 'caravanRent'),
+                    'House' => array(
+                        'house mpista' => 'house mpista'
+                    ),
 
                 )
             ));

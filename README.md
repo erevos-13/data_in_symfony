@@ -1,7 +1,24 @@
 Data in Symfony
 ========================
-Here is my project to make a databases for storing info and 
-of person.
+Here is my project to make a databases for storing data in mysql and display in form with builder.
+search for the name in a table and display all the info 
+
+FOSUserBundle
+========================
+For login and register user in the data.
+
+Doctrine data
+========================
+Use the data tha i store and manipulate from the admin only user. 
+
+
+
+
+
+
+
+
+
 
 
 
