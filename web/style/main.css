@@ -1,3 +1,20 @@
+body{
+    /* in some problem for set a img from web directory check the file */
+    background:url('../../../../style/img/sea1.jpg') no-repeat fixed center;
+    -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+
+}
+
+.background{
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 40px 20px;
+}
+
+
 .orfeas{
 
     padding: 0;

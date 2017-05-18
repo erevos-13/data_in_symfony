@@ -2,8 +2,11 @@
 
 
 {% block body %}
-    <h1>Camper Cost</h1>
+    <div class="container text-center background">
+        <div class="row">
 
+    <h1>Camper Cost</h1>
+<div class="col-md-12">
     <p><b>They arrive at:</b>  {{ days.arrival|date('Y-m-d') }} </p>
     <p><b>They left at:</b>  {{ days.departure |date('Y-m-d')}} </p>
     <p><b>They stay in</b> {{ days.stay }} </p>
@@ -19,7 +22,7 @@
     {% endif %}
 
     {% if days.parking ==true %}
-    {% set parking = 3.5 %}
+    {% set parking = 3 %}
         <p><b>Parking : </b>yes</p>
     {% else %}
     {% set parking = 0 %}
@@ -39,16 +42,17 @@
         {% set result = leftDays *( (days.manyPeople * 6) + cost_stay + 3.5 + parking ) %}
         :<b> {{ result }} Euro</b></p>
 
+</div>
 
 
 
 
 
-
-    <a href="{{ path('people_index') }}"class="btn btn-primary">Back to the list</a>
-
+    <a href="{{ path('people_index') }}"class="btn btn-primary ">Back to the list</a>
 
 
+</div>
+    </div>
 
 
 {% endblock %}

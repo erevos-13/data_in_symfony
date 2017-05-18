@@ -2,6 +2,7 @@
 
 {% block title %}  Info  {% endblock %}
 {% block body %}
+	<div class="background">
 	<h1>Info</h1>
 	<p> {{ person_info.info }} </p>
 	<p>They stay in: {{ person_info.stay }} </p>
@@ -9,4 +10,7 @@
 
 
 <a href=" {{ url('desplay') }} ">Return</a>
-{% endblock %} 
+</div>
+{% endblock %}
+
+

@@ -1,32 +1,34 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
+    <div class="wrapper">
+        <div class="container background">
             <div id="welcome">
                 <h1>People pass in by Daluz</h1>
-                <p>Hera i make i databases with symfony and mysql<br>I can see how can pass or how </p>
+                <p>Here i make i databases with symfony and mysql<br>I can see how can pass or how </p>
             </div>
-            <div class="pull-right text">
-                <h1>The Prices</h1>
+            <div class="row" >
+
+                <h1 class="text-center">The Prices</h1>
+                    <div class="col-md-4">
 
                         <p>visitors: 3.5$ </p>
-                        <p>Per/Person: 6$ </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Per/Person: 6$</p>
                         <p>child(5->10): 4$</p>
                         <p>Power: 3.5$</p>
                         <p>Parking: 3.5$</p>
-                        <br>
+                    </div>
+
+                    <div class="col-md-4">
                         <p>Caravan: 3.5$</p>
                         <p>Caravan Rent: 3.5$</p>
                         <p>Tent: 3.5$</p>
                         <p>Tent Rent: 3.5$</p>
+                    </div>
 
 
             </div>
-
-           
-
-           
-
         </div>
     </div>
 {% endblock %}

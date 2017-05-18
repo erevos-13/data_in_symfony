@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="background">
     <h1>People list</h1>
     <div class="pull-right" >
         <form action="{{ path('people_index') }}" method="get" >
@@ -52,5 +53,5 @@
 
 
             <a href="{{ path('people_new') }}" class="btn btn-primary">Create a new person</a>
-
+    </div>
 {% endblock %}
