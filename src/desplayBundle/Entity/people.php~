@@ -45,14 +45,14 @@ class people
     /**
      * @var string
      *
-     * @ORM\Column(name="arrival", type="string", length=255)
+     * @ORM\Column(name="arrival",  type="date", nullable=true)
      */
     private $arrival;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="departure", type="string", length=255)
+     * @ORM\Column(name="departure",  type="date")
      */
     private $departure;
 
@@ -73,9 +73,17 @@ class people
     /**
      * @var integer
      *
-     * @ORM\Column(name="manyPeople", type="decimal", scale=3)
+     * @ORM\Column(name="manyPeople", type="decimal")
      */
     private $manyPeople;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="parking", type="boolean")
+     */
+    private $parking;
+
 
     /**
      * Get id
@@ -255,6 +263,52 @@ class people
         return $this->stay;
     }
 
+
+    /**
+     * Set manyPeople
+     *
+     * @param string $manyPeople
+     *
+     * @return people
+     */
+    public function setManyPeople($manyPeople)
+    {
+        $this->manyPeople = $manyPeople;
+
+        return $this;
+    }
+
+    /**
+     * Get manyPeople
+     *
+     * @return string
+     */
+    public function getManyPeople()
+    {
+        return $this->manyPeople;
+    }
+
+    /**
+     * Set parking
+     *
+     * @param boolean $parking
+     *
+     * @return people
+     */
+    public function setParking($parking)
+    {
+        $this->parking = $parking;
+
+        return $this;
+    }
+
+    /**
+     * Get parking
+     *
+     * @return boolean
+     */
+    public function getParking()
+    {
+        return $this->parking;
+    }
 }
-
-
