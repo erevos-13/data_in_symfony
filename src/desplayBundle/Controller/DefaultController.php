@@ -48,9 +48,7 @@ class DefaultController extends Controller
 
         );
 
-        /*if ($form->isSubmitted() && $form->isValid()  ) {
-            die('Form submitted');
-        }*/
+
         return array(
 
             //'form' => $form->createView(),

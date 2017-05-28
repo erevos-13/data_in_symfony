@@ -3,11 +3,11 @@
  */
 $(document).ready(function(){
 
-    $("p").hover(function(){
-            $(this).addClass('hovered');
+    $("h1").hover(function(){
+            $(this).addClass('animated  bounce');
         },
         function(){
-            $(this).removeClass('hovered');
+            $(this).removeClass('animated bounce');
         });
 });
 

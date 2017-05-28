@@ -16,4 +16,12 @@ class DefaultController extends Controller
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig');
     }
+
+
+    /**
+     * @Route("/error" , name="denied")
+    */
+    public function showAction(){
+        return $this->render('default/error.html.twig');
+    }
 }
