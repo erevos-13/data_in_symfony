@@ -22,7 +22,7 @@ class Builder
         $menu->addChild('Manage Info',['route' => 'people_index'] );
         $menu->addChild('Profile',['route' => 'fos_user_profile_show'] );
         $menu->addChild('Register',['route' => 'fos_user_registration_register'] );
-        $menu->addChild('Insert Camper',['route' => 'people_new'] );
+        $menu->addChild('Insert Customer',['route' => 'people_new'] );
 
 
 

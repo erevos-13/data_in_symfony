@@ -1,6 +1,6 @@
 body{
     /* in some problem for set a img from web directory check the file */
-    background:url('../../../../style/img/sea1.jpg') no-repeat fixed center;
+    background:url('img/sea1.jpg') no-repeat fixed center;
     -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
@@ -14,6 +14,13 @@ background-size: cover;
     padding: 40px 20px;
 }
 
+.footerBack{
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-top: 30px;
+    border-top-color: #333333;
+    border-top: groove;
+    padding: 10px 20px;
+}
 
 .orfeas{
 

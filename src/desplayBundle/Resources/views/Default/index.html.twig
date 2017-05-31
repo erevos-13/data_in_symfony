@@ -36,6 +36,7 @@
 			<th><h3>How Many People</h3></th>
 			<th><h3>{{ knp_pagination_sortable(pagination, 'Arrival', ['bp.arrival']) }}</h3></th>
 			<th><h3>Departure</h3></th>
+			<th><h3>Email</h3></th>
 			<th><h3>Info</h3></th>
 			<th><h3>Cost</h3></th>
 
@@ -49,6 +50,7 @@
 				<th >{{ person.manyPeople }}</th>
 				<th>{{ person.arrival | date('d-m-Y') }}</th>
 				<th>{{ person.departure|date('d-m-Y') }}</th>
+				<th>{{ person.email }}</th>
 				<th> <a href=" {{ url('person', {id: person.id})}} ">Show more</a> </th>
 				<th> <a href=" {{ url('cost', {id: person.id})}} ">Show Cost</a> </th>
 
