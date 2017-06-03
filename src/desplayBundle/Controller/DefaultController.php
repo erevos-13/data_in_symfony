@@ -2,6 +2,7 @@
 
 namespace desplayBundle\Controller;
 
+use desplayBundle\Entity\cost;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use desplayBundle\Entity\people;
@@ -84,14 +85,20 @@ class DefaultController extends Controller
      */
 
     public function numberAction($id){
-        $tent = 5.5;
-        $tentRent = 10;
-        $caravanRent = 15;
-        $caravan = 10;
-        $people = 6;
+        $getDoctrine = $this->getDoctrine()->getManager();
 
-        $em = $this->getDoctrine()->getManager();
-        $days = $em->getRepository('desplayBundle:people')->find($id);
+
+        $tent = $getDoctrine->getRepository('desplayBundle:cost')->find('tent');
+        $tentRent = $getDoctrine->getRepository('desplayBundle:cost')->find('tentRent');
+        $caravanRent = $getDoctrine->getRepository('desplayBundle:cost')->find('caravanTent');
+        $caravan = $getDoctrine->getRepository('desplayBundle:cost')->find('caravan');
+        $people = $getDoctrine->getRepository('desplayBundle:cost')->find('people');
+
+        //$cost = $this->getDoctrine()->getManager();
+
+
+        //$em = $this->getDoctrine()->getManager();
+        $days = $getDoctrine->getRepository('desplayBundle:people')->find($id);
 
 
 
@@ -102,11 +109,14 @@ class DefaultController extends Controller
                 'tentRent'=> $tentRent,
                 'caravan'=> $caravan,
                 'caravanRent'=> $caravanRent,
-                'people' => $people
+                'people' => $people,
+
 
             ]
         );
     }
+
+
 
 
 

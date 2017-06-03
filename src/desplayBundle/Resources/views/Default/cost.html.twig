@@ -11,14 +11,14 @@
     <p><b>They left at:</b>  {{ days.departure |date('Y-m-d')}} </p>
     <p><b>They stay in</b> {{ days.stay }} </p>
     <p><b>The people that stay: </b>{{ days.manyPeople }} people </p>
-    {% if days.stay == 'tent' %}
+    {% if days.stay =='tent' %}
         {% set cost_stay = tent %}
     {% elseif days.stay == 'tentRent' %}
         {% set cost_stay = tentRent %}
     {% elseif days.stay == 'caravan' %}
         {% set cost_stay = caravan %}
     {% else %}
-        {% set cost_stay = caravanRent %}
+        {% set cost_stay =  caravanRent  %}
     {% endif %}
 
     {% if days.parking ==true %}
@@ -28,7 +28,7 @@
     {% set parking = 0 %}
         <p><b>Parking : </b>No</p>
     {% endif %}
-
+    <p>{{ tent }}</p>
     {# endDate and startDate are strings or DateTime objects #}
     {% set difference = date(days.departure).diff(date(days.arrival)) %}
     {% set leftDays = difference.days %}

@@ -10,24 +10,23 @@
             <div class="row" >
 
                 <h1 class="text-center">The Prices</h1>
-                    <div class="col-md-4">
 
-                        <p>visitors: 3.5$ </p>
-                    </div>
-                    <div class="col-md-4">
-                        <p>Per/Person: 6$</p>
-                        <p>child(5->10): 4$</p>
-                        <p>Power: 3.5$</p>
-                        <p>Parking: 3.5$</p>
+                    <div class="col-md-6">
+                        {% for cost in prices %}
+                            <p>People: {{ cost.people }}€</p>
+                            <p>Power: {{ cost.power }} €</p>
+
+                        {% endfor %}
                     </div>
 
-                    <div class="col-md-4">
-                        <p>Caravan: 3.5$</p>
-                        <p>Caravan Rent: 3.5$</p>
-                        <p>Tent: 3.5$</p>
-                        <p>Tent Rent: 3.5$</p>
+                    <div class="col-md-6">
+                        {% for cost in prices %}
+                            <p>Tent: {{ cost.tent }} €</p>
+                            <p>Tent Rent: {{ cost.tentRent }} €</p>
+                            <p>Caravan: {{ cost.caravan }} €</p>
+                            <p>Caravan Rent : {{ cost.caravanRent }} €</p>
+                        {% endfor %}
                     </div>
-
 
             </div>
         </div>

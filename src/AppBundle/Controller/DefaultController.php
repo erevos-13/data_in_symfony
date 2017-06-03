@@ -14,7 +14,14 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig');
+        $getDoctrine = $this->getDoctrine()->getManager();
+        $prices = $getDoctrine->getRepository("desplayBundle:cost")->findAll();
+
+        return $this->render('default/index.html.twig',
+            [
+                'prices' => $prices
+            ]);
+
     }
 
 

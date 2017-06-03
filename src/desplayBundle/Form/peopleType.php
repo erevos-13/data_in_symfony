@@ -19,6 +19,7 @@ class peopleType extends AbstractType
 
         $builder->add('name' )
             ->add('lastName')
+            ->add('email')
             ->add('position')
             ->add('manyPeople',choiceType::class, array(
                 'choices' => array(
