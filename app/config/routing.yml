@@ -1,3 +1,8 @@
+email:
+    resource: "@emailBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 desplay:
     resource: "@desplayBundle/Controller/"
     type:     annotation
