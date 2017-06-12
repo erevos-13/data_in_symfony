@@ -51,6 +51,7 @@
 				<th>{{ person.arrival | date('d-m-Y') }}</th>
 				<th>{{ person.departure|date('d-m-Y') }}</th>
 				<th>{{ person.email }}</th>
+				<th> <a href=" {{ url('email', {id: person.id})}} ">Send Email</a> </th>
 				<th> <a href=" {{ url('person', {id: person.id})}} ">Show more</a> </th>
 				<th> <a href=" {{ url('cost', {id: person.id})}} ">Show Cost</a> </th>
 

@@ -23,7 +23,7 @@ class Builder
         $menu->addChild('Profile',['route' => 'fos_user_profile_show'] );
         $menu->addChild('Register',['route' => 'fos_user_registration_register'] );
         $menu->addChild('Insert Customer',['route' => 'people_new'] );
-        $menu->addChild('Email',['route' => 'email'] );
+
 
 
 
