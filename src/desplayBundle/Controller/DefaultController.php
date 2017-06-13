@@ -9,6 +9,7 @@ use desplayBundle\Entity\people;
 use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -114,6 +115,27 @@ class DefaultController extends Controller
 
             ]
         );
+    }
+    /**
+     * @Route("/email/{id}", name="email")
+    **/
+
+    public function emailSend(FormBuilderInterface $builder, array $options ,$id)
+    {
+        $builder->add('msn', 'textarea',array(
+            'attr' => array('cols' => '5', 'rows' => '5'),
+        ));
+
+        $getDoctrine = $this->getDoctrine()->getManager();
+
+        $user = $getDoctrine->getRepository('desplayBundle:people')->find($id);
+        $email = $user->getEmail();
+        echo $email;
+
+
+        return $this->render('desplayBundle:email:email.html.twig', array(
+
+        ));
     }
 
 
