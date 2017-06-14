@@ -120,22 +120,29 @@ class DefaultController extends Controller
      * @Route("/email/{id}", name="email")
     **/
 
-    public function emailSend(FormBuilderInterface $builder, array $options ,$id)
+    public function email($id)
     {
-        $builder->add('msn', 'textarea',array(
-            'attr' => array('cols' => '5', 'rows' => '5'),
-        ));
+
 
         $getDoctrine = $this->getDoctrine()->getManager();
 
         $user = $getDoctrine->getRepository('desplayBundle:people')->find($id);
         $email = $user->getEmail();
-        echo $email;
+//        echo $email;
 
 
         return $this->render('desplayBundle:email:email.html.twig', array(
 
         ));
+    }
+
+    /**
+     * @Route("/sendemail", name="sendEmail")
+    **/
+
+    public function sendEmail(){
+
+
     }
 
 
