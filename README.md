@@ -1,7 +1,13 @@
+Installation
+========================
+You download the file from here you install and the you configured the databases the next is done.
+
+
 Data in Symfony
 ========================
 Here is my project to make a databases for storing data in mysql and display in form with builder.
-search for the name in a table and display all the info 
+search for the name in a table and display all the info.
+
 
 FOSUserBundle
 ========================
