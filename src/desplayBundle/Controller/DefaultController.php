@@ -116,9 +116,12 @@ class DefaultController extends Controller
             ]
         );
     }
+
     /**
      * @Route("/email/{id}", name="email")
-    **/
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
 
     public function email($id)
     {
@@ -128,19 +131,50 @@ class DefaultController extends Controller
 
         $user = $getDoctrine->getRepository('desplayBundle:people')->find($id);
         $email = $user->getEmail();
-//        echo $email;
+
+        
+
+
+
+
+
+
+
 
 
         return $this->render('desplayBundle:email:email.html.twig', array(
+            'email' => $email,
 
         ));
     }
 
     /**
      * @Route("/sendemail", name="sendEmail")
-    **/
+     * @Method("POST")
+     * @param $message
+     * @param $email
+     * @param $name
+     */
 
     public function sendEmail(){
+        if (isset($_POST['submit'])){
+
+          $message = $_POST['message'];
+          $email  = $_POST['email'];
+
+          mail($email,"From Daluz", $message);
+
+        }
+
+        return $this->render('desplayBundle:email:respons.html.twig',array(
+
+            'message' => $message,
+            'email' => $email,
+
+
+        ));
+
+
 
 
     }
