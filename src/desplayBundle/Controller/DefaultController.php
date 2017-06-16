@@ -161,6 +161,7 @@ class DefaultController extends Controller
 
           $message = $_POST['message'];
           $email  = $_POST['email'];
+          $subject = $_POST['subject'];
 
           mail($email,"From Daluz", $message);
 
@@ -170,6 +171,7 @@ class DefaultController extends Controller
 
             'message' => $message,
             'email' => $email,
+            'subject' => $subject,
 
 
         ));
